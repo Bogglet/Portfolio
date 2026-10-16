@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# bogglet.com
 
-## Getting Started
+Portfolio site for Bogglet Innovations. Next.js 15, Tailwind CSS 4, Motion.
 
-First, run the development server:
+## Run locally
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    npm install
+    npm run dev      # http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where to edit content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Everything that changes lives in `src/lib/site.ts`:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `site`: email, WhatsApp, phone, address, social links (phone, address and socials are placeholders)
+- `markets`: countries in the scrolling strip
+- `services`, `stack`: services grid and technology list
+- `projects`: sample case studies (placeholders, replace with real work)
+- `steps`, `promises`, `faqs`: partner process, guarantees and FAQ copy
 
-## Learn More
+Logo files are in `public/brand/` (transparent PNGs cut from the original logo).
+The favicon and Open Graph image are generated from `src/app/icon.png` and `src/app/opengraph-image.tsx`.
 
-To learn more about Next.js, take a look at the following resources:
+## Contact form
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+There's no backend yet. Submitting opens the visitor's email app with the enquiry
+pre-filled to team.bogglet@gmail.com (`src/components/Contact.tsx`). To send emails
+directly, replace `submit` with a POST to an API route using Resend or Formspree.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy to Vercel
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push this repo to GitHub/Bitbucket and import it at vercel.com/new (framework: Next.js, no settings needed).
+2. In Project Settings > Domains add `bogglet.com` and `www.bogglet.com`, then set the DNS records Vercel shows at your domain registrar.

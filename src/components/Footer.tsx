@@ -1,0 +1,63 @@
+import { Logo } from "./Logo";
+import { site, whatsappLink } from "@/lib/site";
+
+export function Footer() {
+  return (
+    <footer className="bg-red px-4 pb-10 pt-20 text-white">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div>
+            <p className="max-w-sm font-display text-2xl font-bold leading-snug tracking-tight">
+              You manage the client. We handle the build.
+            </p>
+            <a
+              href="#contact"
+              className="mt-8 inline-block rounded-full bg-white px-6 py-3 font-semibold text-red transition-colors hover:bg-blush"
+            >
+              Get a quote
+            </a>
+          </div>
+          <div>
+            <h2 className="text-sm font-semibold text-white/70">Contact</h2>
+            <ul className="mt-4 space-y-2">
+              <li>
+                <a href={`mailto:${site.email}`} className="hover:underline">
+                  {site.email}
+                </a>
+              </li>
+              <li>
+                <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  WhatsApp +91 98959 14090
+                </a>
+              </li>
+              <li>{site.phone}</li>
+              <li className="text-white/80">{site.address}</li>
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-sm font-semibold text-white/70">Follow</h2>
+            <ul className="mt-4 space-y-2">
+              <li>
+                <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  Instagram
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <Logo full className="mt-20 h-auto w-full text-white/95" />
+
+        <div className="mt-8 flex flex-wrap justify-between gap-4 border-t border-white/20 pt-6 text-sm text-white/70">
+          <span>© {new Date().getFullYear()} Bogglet Innovations. Kerala, India.</span>
+          <span>Serving the GCC, India and beyond</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
