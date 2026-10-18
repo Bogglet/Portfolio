@@ -17,55 +17,37 @@ const instrument = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Bogglet — Custom Software Development & Technology Solutions",
+    default: "Bogglet Innovations — White-label web & app development",
     template: "%s | Bogglet Innovations",
   },
   description: site.description,
   keywords: [
-    "custom software development company",
-    "business software development",
-    "ERP and CRM development",
-    "business website development",
-    "web and mobile application development",
-    "AI solution development",
-    "business process automation",
-    "white-label software development",
-    "white-label web development for agencies",
-    "software development partner GCC UAE Qatar Saudi Arabia",
-    "software development company Kerala India",
+    "white label web development",
+    "website development partner",
+    "outsource web development UAE",
+    "web development Qatar",
+    "mobile app development GCC",
+    "Kerala web development company",
   ],
-  authors: [{ name: site.name, url: site.url }],
   openGraph: {
     type: "website",
     url: site.url,
     siteName: site.name,
-    title: "Bogglet — Turn Your Business Ideas Into Powerful Digital Solutions",
-    description: site.primaryPositioning,
+    title: "Bogglet Innovations — You manage the client. We handle the build.",
+    description: site.description,
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Bogglet — Technology Built Around Your Business",
-    description: site.primaryPositioning,
-  },
-  alternates: {
-    canonical: "/",
-  },
+  twitter: { card: "summary_large_image" },
+  alternates: { canonical: "/" },
 };
 
 export const viewport: Viewport = {
   themeColor: "#b41314",
-  width: "device-width",
-  initialScale: 1,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${unbounded.variable} ${instrument.variable}`}>
-      <body className="min-h-screen flex flex-col">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
