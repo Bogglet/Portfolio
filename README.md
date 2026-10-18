@@ -11,7 +11,7 @@ Portfolio site for Bogglet Innovations. Next.js 15, Tailwind CSS 4, Motion.
 
 Everything that changes lives in `src/lib/site.ts`:
 
-- `site`: email, WhatsApp, phone, address, social links (phone, address and socials are placeholders)
+- `site`: email, WhatsApp, phones, address and the inboxes that receive quote-form enquiries
 - `markets`: countries in the scrolling strip
 - `services`, `stack`: services grid and technology list
 - `projects`: sample case studies (placeholders, replace with real work)

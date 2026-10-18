@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="bg-red px-4 pb-10 pt-20 text-white">
       <div className="mx-auto max-w-site">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_0.7fr]">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <p className="max-w-sm font-display text-2xl font-bold leading-snug tracking-tight">
               You manage the client, we handle the build. Or bring us your own project.
@@ -62,21 +62,6 @@ export function Footer() {
                 </li>
               ))}
               <li className="text-white/80">{site.address}</li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="text-sm font-semibold text-white/70">Follow</h2>
-            <ul className="mt-4 space-y-2">
-              <li>
-                <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a href={site.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                  Instagram
-                </a>
-              </li>
             </ul>
           </div>
         </div>

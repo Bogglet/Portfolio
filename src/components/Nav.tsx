@@ -34,8 +34,9 @@ export function Nav() {
             : "border-transparent bg-transparent"
         }`}
       >
-        <Link href="/" className="text-red" aria-label="Bogglet Innovations, home">
-          <Logo className="h-6 sm:h-7" />
+        <Link href="/" className="flex text-red" aria-label="Bogglet Innovations, home">
+          {/* nudged down: the "g" tails make the word sit high in its box */}
+          <Logo className="h-6 translate-y-[9%] sm:h-7" />
         </Link>
 
         <ul className="hidden items-center gap-7 text-[15px] font-medium text-ink-soft lg:flex">

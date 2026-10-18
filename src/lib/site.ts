@@ -14,11 +14,6 @@ export const site = {
   phone: "+91 98959 14090",
   phoneUae: "+971 54 584 1215",
   address: "BHIVE Workspace, AKR Tech Park, Hosur Road, Bengaluru 560068",
-  // TODO: replace placeholder socials with real links.
-  socials: {
-    linkedin: "https://www.linkedin.com/company/bogglet",
-    instagram: "https://www.instagram.com/bogglet",
-  },
 };
 
 // TODO: replace the placeholder name and role with the real ones.
@@ -128,48 +123,44 @@ export const stack = [
   "Claude",
 ];
 
-// TODO: sample projects — replace with real case studies, screenshots and links.
+// Real projects, shown with the owners' screenshots.
 export type Project = {
   client: string;
-  where: string;
+  where?: string;
   kind: string;
   summary: string;
-  palette: [string, string, string];
-  layout: "site" | "app" | "shop" | "dash";
+  // Dummy mockup in public/work/ (4:3). Swap for a real screenshot later.
+  image: string;
 };
 
 export const projects: Project[] = [
   {
-    client: "Boutique hotel group",
-    where: "Doha, Qatar",
-    kind: "Website + booking engine",
-    summary: "A bilingual site with a direct booking engine that cut their reliance on OTAs.",
-    palette: ["#14342B", "#E9DCC4", "#C9A55C"],
-    layout: "site",
-  },
-  {
-    client: "Real estate developer",
-    where: "Dubai, UAE",
-    kind: "Mobile app",
-    summary: "Off-plan listings, payment plans and site-visit booking in one iOS and Android app.",
-    palette: ["#0F2A4A", "#F2F5FA", "#3D7BFD"],
-    layout: "app",
-  },
-  {
-    client: "Fashion retailer",
-    where: "Muscat, Oman",
-    kind: "Shopify store",
-    summary: "A Shopify store with local payment gateways, COD and same-day delivery integration.",
-    palette: ["#2B1B17", "#F6EFEA", "#D9826B"],
-    layout: "shop",
-  },
-  {
-    client: "Logistics company",
+    client: "HolaBakes",
     where: "Kochi, India",
-    kind: "Operations dashboard",
-    summary: "A fleet and shipment dashboard that replaced six spreadsheets and a WhatsApp group.",
-    palette: ["#111827", "#F3F4F6", "#22C55E"],
-    layout: "dash",
+    kind: "Mobile app",
+    summary: "A cake-ordering app with bakers near you, prep-time filters and an AI tool for designing your own cake.",
+    image: "/work/holabakes-app.jpg",
+  },
+  {
+    client: "HomeDec",
+    // TODO: add HomeDec's city when the owners confirm it.
+    kind: "Furniture e-commerce website",
+    summary: "A furniture store with product search, colour options on each piece, a wishlist and customer accounts with Google sign-in.",
+    image: "/work/homedec-store.jpg",
+  },
+  {
+    client: "Student Management System",
+    // TODO: add the college's city when the owners confirm it.
+    kind: "College ERP",
+    summary: "A college ERP for students and faculty, covering gate passes, fees, results, notes, assignments, announcements, chat and video calls.",
+    image: "/work/sms-college-erp.jpg",
+  },
+  {
+    client: "Sugar and Slice",
+    // TODO: add Sugar and Slice's city when the owners confirm it.
+    kind: "Inventory & management system",
+    summary: "An admin panel for a cake business that runs orders, bakers, products, pricing, delivery slots and revenue in one place.",
+    image: "/work/sugar-and-slice-admin.jpg",
   },
 ];
 

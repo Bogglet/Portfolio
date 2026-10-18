@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Clay } from "./Clay";
@@ -9,7 +10,6 @@ import {
   services,
   stack,
   steps,
-  type Project,
   type Service,
 } from "@/lib/site";
 
@@ -172,96 +172,6 @@ export function Services() {
   );
 }
 
-function ProjectArt({ p }: { p: Project }) {
-  const [dark, light, accent] = p.palette;
-  if (p.layout === "app") {
-    return (
-      <div className="flex h-full items-end justify-center gap-4 pt-8" style={{ background: light }}>
-        {[0, 1].map((n) => (
-          <div
-            key={n}
-            className={`w-[38%] rounded-t-[26px] border-[6px] border-b-0 p-3 ${n ? "translate-y-6" : ""}`}
-            style={{ borderColor: dark, background: "white" }}
-          >
-            <div className="h-20 rounded-xl" style={{ background: n ? accent : dark }} />
-            <div className="mt-3 h-2 w-3/4 rounded-full" style={{ background: dark, opacity: 0.8 }} />
-            <div className="mt-2 h-2 w-1/2 rounded-full" style={{ background: dark, opacity: 0.3 }} />
-            <div className="mt-4 grid grid-cols-2 gap-2">
-              <div className="h-12 rounded-lg" style={{ background: light }} />
-              <div className="h-12 rounded-lg" style={{ background: light }} />
-            </div>
-          </div>
-        ))}
-      </div>
-    );
-  }
-  if (p.layout === "dash") {
-    return (
-      <div className="grid h-full grid-cols-[22%_1fr] gap-3 p-5" style={{ background: dark }}>
-        <div className="space-y-2 rounded-xl bg-white/5 p-3">
-          {[1, 0.4, 0.4, 0.4].map((o, i) => (
-            <div key={i} className="h-2 rounded-full" style={{ background: i ? light : accent, opacity: o }} />
-          ))}
-        </div>
-        <div className="space-y-3">
-          <div className="grid grid-cols-3 gap-3">
-            {[0, 1, 2].map((i) => (
-              <div key={i} className="h-14 rounded-xl bg-white/5 p-3">
-                <div className="h-2 w-1/2 rounded-full bg-white/20" />
-                <div className="mt-2 h-3 w-3/4 rounded-full" style={{ background: i === 0 ? accent : light }} />
-              </div>
-            ))}
-          </div>
-          <div className="flex h-28 items-end gap-2 rounded-xl bg-white/5 p-3">
-            {[40, 65, 50, 80, 70, 95, 60, 85].map((h, i) => (
-              <div key={i} className="flex-1 rounded-t-md" style={{ height: `${h}%`, background: i === 5 ? accent : `${light}55` }} />
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-  if (p.layout === "shop") {
-    return (
-      <div className="h-full p-5" style={{ background: light }}>
-        <div className="flex justify-between">
-          <div className="h-3 w-16 rounded-full" style={{ background: dark }} />
-          <div className="size-3 rounded-full" style={{ background: accent }} />
-        </div>
-        <div className="mt-5 grid grid-cols-3 gap-3">
-          {[0, 1, 2].map((i) => (
-            <div key={i}>
-              <div className="aspect-[3/4] rounded-xl" style={{ background: i === 1 ? accent : `${dark}22` }} />
-              <div className="mt-2 h-2 w-3/4 rounded-full" style={{ background: dark, opacity: 0.6 }} />
-              <div className="mt-1.5 h-2 w-1/3 rounded-full" style={{ background: accent }} />
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-  return (
-    <div className="flex h-full flex-col p-5" style={{ background: dark }}>
-      <div className="flex justify-between">
-        <div className="h-3 w-14 rounded-full" style={{ background: light }} />
-        <div className="flex gap-2">
-          {[0, 1, 2].map((i) => (
-            <div key={i} className="h-2 w-8 rounded-full" style={{ background: light, opacity: 0.4 }} />
-          ))}
-        </div>
-      </div>
-      <div className="mt-8 h-5 w-2/3 rounded-full" style={{ background: light }} />
-      <div className="mt-2 h-5 w-1/2 rounded-full" style={{ background: light }} />
-      <div className="mt-6 h-8 w-28 rounded-lg" style={{ background: accent }} />
-      <div className="mt-auto grid grid-cols-3 gap-2 pt-6">
-        {[0, 1, 2].map((i) => (
-          <div key={i} className="h-12 rounded-lg" style={{ background: light, opacity: 0.25 + i * 0.15 }} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export function Work() {
   return (
     <section id="work" className="px-4 pb-24 pt-4 sm:pb-32">
@@ -269,7 +179,7 @@ export function Work() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <Heading
             title="Recent work"
-            body="Most of what we build carries our partners' names, so client details are kept anonymous. Ask us for private case studies."
+            body="A few projects we can show. Most of our white-label work carries our partners' names, so ask us for private case studies."
           />
         </div>
         <ul className="mt-14 grid gap-6 md:grid-cols-2">
@@ -277,11 +187,18 @@ export function Work() {
             <li key={p.client} className={i % 2 === 1 ? "md:mt-16" : ""}>
               <article>
                 <div className="aspect-[4/3] overflow-hidden rounded-[28px] border border-line">
-                  <ProjectArt p={p} />
+                  <Image
+                    src={p.image}
+                    alt={`${p.kind} for ${p.client}${p.where ? ` in ${p.where}` : ""}`}
+                    width={1600}
+                    height={1200}
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="size-full object-cover"
+                  />
                 </div>
                 <div className="mt-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h3 className="font-display text-xl font-bold tracking-tight">{p.client}</h3>
-                  <span className="text-sm font-medium text-ink-soft">{p.where}</span>
+                  {p.where && <span className="text-sm font-medium text-ink-soft">{p.where}</span>}
                 </div>
                 <p className="mt-1 text-sm font-semibold text-red">{p.kind}</p>
                 <p className="mt-2 max-w-md leading-relaxed text-ink-soft">{p.summary}</p>
