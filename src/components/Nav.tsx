@@ -1,14 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Logo } from "./Logo";
 
+// Absolute paths so the links also work from /for-business.
 const links = [
-  { href: "#work", label: "Work" },
-  { href: "#services", label: "Services" },
-  { href: "#partners", label: "For agencies" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#work", label: "Work" },
+  { href: "/#services", label: "Services" },
+  { href: "/#partners", label: "For agencies" },
+  { href: "/for-business", label: "For businesses" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function Nav() {
@@ -31,16 +34,16 @@ export function Nav() {
             : "border-transparent bg-transparent"
         }`}
       >
-        <a href="#top" className="text-red" aria-label="Bogglet Innovations, back to top">
+        <Link href="/" className="text-red" aria-label="Bogglet Innovations, home">
           <Logo className="h-6 sm:h-7" />
-        </a>
+        </Link>
 
-        <ul className="hidden items-center gap-8 text-[15px] font-medium text-ink-soft md:flex">
+        <ul className="hidden items-center gap-7 text-[15px] font-medium text-ink-soft lg:flex">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="transition-colors hover:text-ink">
+              <Link href={l.href} className="transition-colors hover:text-ink">
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -58,7 +61,7 @@ export function Nav() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="grid size-10 place-items-center rounded-full md:hidden"
+            className="grid size-10 place-items-center rounded-full lg:hidden"
           >
             <span className="relative block h-3 w-5">
               <span
@@ -80,17 +83,17 @@ export function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="mx-auto mt-2 max-w-6xl rounded-3xl border border-line bg-white p-3 shadow-xl md:hidden"
+            className="mx-auto mt-2 max-w-6xl rounded-3xl border border-line bg-white p-3 shadow-xl lg:hidden"
           >
             {links.map((l) => (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className="block rounded-2xl px-4 py-3 font-display text-lg font-semibold hover:bg-blush"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
             <a
               href="#contact"

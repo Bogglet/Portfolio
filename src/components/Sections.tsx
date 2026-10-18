@@ -1,5 +1,16 @@
+import Link from "next/link";
 import { Clay } from "./Clay";
-import { markets, projects, promises, services, stack, steps, type Project, type Service } from "@/lib/site";
+import {
+  businessGroups,
+  markets,
+  projects,
+  promises,
+  services,
+  stack,
+  steps,
+  type Project,
+  type Service,
+} from "@/lib/site";
 
 function Heading({ title, body, invert = false }: { title: string; body?: string; invert?: boolean }) {
   return (
@@ -47,7 +58,7 @@ export function Audiences() {
       <div className="mx-auto max-w-6xl">
         <Heading
           title="Two ways to work with us"
-          body="Most of our work comes from agencies who need a reliable build team. We also take on projects directly for businesses."
+          body="Most of our work comes from agencies who need a reliable build team. We also work directly with businesses of every size, from a first website to company-wide software."
         />
         <div className="mt-14 grid gap-5 lg:grid-cols-[1.25fr_1fr]">
           <a
@@ -68,22 +79,23 @@ export function Audiences() {
               How the partnership works
             </span>
           </a>
-          <a
-            href="#contact"
+          <Link
+            href="/for-business"
             className="group relative overflow-hidden rounded-[32px] border border-line bg-blush p-8 sm:p-12"
           >
             <Clay tone="sky" shape="pill" className="-right-14 bottom-6 w-32 sm:-right-10 sm:bottom-10 sm:w-40" style={{ transform: "rotate(-20deg)" }} />
             <p className="relative z-10 text-sm font-semibold text-ink-soft">For businesses</p>
             <h3 className="relative z-10 mt-3 max-w-sm font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">
-              A product team without the hiring
+              Websites and software for your business
             </h3>
             <p className="relative z-10 mt-5 max-w-sm text-lg leading-relaxed text-ink-soft">
-              From the first sketch to the App Store, with one team accountable for the whole thing.
+              From a website that brings in customers to the custom software, ERP, apps and AI tools that
+              run your operations. One team, start to finish.
             </p>
             <span className="relative z-10 mt-10 inline-block rounded-full bg-ink px-6 py-3 font-semibold text-white transition-transform group-hover:translate-x-1">
-              Start a project
+              What we build for businesses
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
@@ -297,6 +309,59 @@ export function Partners() {
               </div>
             ))}
           </dl>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const groupTone = { blush: "bg-blush", butter: "bg-butter" } as const;
+
+export function BusinessGroups() {
+  return (
+    <ul className="grid gap-5 lg:grid-cols-2">
+      {businessGroups.map((g) => (
+        <li key={g.title} className={`rounded-[32px] p-8 sm:p-10 ${groupTone[g.tone]}`}>
+          <h3 className="font-display text-2xl font-bold tracking-tight sm:text-3xl">{g.title}</h3>
+          <p className="mt-3 max-w-md leading-relaxed text-ink/75">{g.body}</p>
+          <ul className="mt-8 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+            {g.items.map((item) => (
+              <li key={item} className="flex items-center gap-3 font-medium">
+                <span aria-hidden className="size-2 shrink-0 rounded-full bg-red" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export function ForBusiness() {
+  return (
+    <section id="business" className="px-4 py-24 sm:py-32">
+      <div className="mx-auto max-w-6xl">
+        <Heading
+          title="Building for businesses directly"
+          body="Not an agency? We work with small businesses, startups and established companies across the Gulf and India, from a first website to the software that runs the whole operation."
+        />
+        <div className="mt-14">
+          <BusinessGroups />
+        </div>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Link
+            href="/for-business"
+            className="rounded-full bg-ink px-7 py-4 font-semibold text-white transition-colors hover:bg-red"
+          >
+            Explore business solutions
+          </Link>
+          <Link
+            href="/for-business#contact"
+            className="rounded-full border border-ink/15 bg-white px-7 py-4 font-semibold text-ink transition-colors hover:border-ink/40"
+          >
+            Get a quote for your business
+          </Link>
         </div>
       </div>
     </section>

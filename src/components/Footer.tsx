@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Logo } from "./Logo";
 import { site, whatsappLink } from "@/lib/site";
 
@@ -5,10 +6,10 @@ export function Footer() {
   return (
     <footer className="bg-red px-4 pb-10 pt-20 text-white">
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_0.7fr]">
           <div>
             <p className="max-w-sm font-display text-2xl font-bold leading-snug tracking-tight">
-              You manage the client. We handle the build.
+              You manage the client, we handle the build. Or bring us your own project.
             </p>
             <a
               href="#contact"
@@ -16,6 +17,26 @@ export function Footer() {
             >
               Get a quote
             </a>
+          </div>
+          <div>
+            <h2 className="text-sm font-semibold text-white/70">Work with us</h2>
+            <ul className="mt-4 space-y-2">
+              <li>
+                <Link href="/#partners" className="hover:underline">
+                  For agencies
+                </Link>
+              </li>
+              <li>
+                <Link href="/for-business" className="hover:underline">
+                  For businesses
+                </Link>
+              </li>
+              <li>
+                <Link href="/#work" className="hover:underline">
+                  Recent work
+                </Link>
+              </li>
+            </ul>
           </div>
           <div>
             <h2 className="text-sm font-semibold text-white/70">Contact</h2>

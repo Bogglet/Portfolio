@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { Clay } from "./Clay";
@@ -39,7 +40,8 @@ export function Hero() {
 
           <motion.p {...rise(0.12)} className="mt-7 max-w-[34rem] text-lg leading-relaxed text-ink-soft sm:text-xl">
             Bogglet is the white-label development team behind digital agencies in Qatar, the UAE,
-            Oman and India. Websites, web apps and mobile apps, delivered under your brand.
+            Oman and India. We also build websites, apps and custom software for businesses that come
+            to us directly.
           </motion.p>
 
           <motion.div {...rise(0.22)} className="mt-10 flex flex-wrap gap-3">
@@ -49,20 +51,23 @@ export function Hero() {
             >
               Become a partner
             </a>
-            <a
-              href={whatsappLink("Hi Bogglet, I run an agency and want to discuss a white-label partnership.")}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/for-business"
               className="rounded-full border border-ink/15 bg-white px-7 py-4 text-base font-semibold text-ink transition-colors hover:border-ink/40"
             >
-              Chat on WhatsApp
-            </a>
+              For businesses
+            </Link>
           </motion.div>
 
           <motion.p {...rise(0.3)} className="mt-6 text-[15px] text-ink-soft">
-            Running a business, not an agency?{" "}
-            <a href="#contact" className="font-semibold text-ink underline decoration-red decoration-2 underline-offset-4">
-              We build for you directly too.
+            Prefer to talk it through?{" "}
+            <a
+              href={whatsappLink("Hi Bogglet, I'd like to talk about a project.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-ink underline decoration-red decoration-2 underline-offset-4"
+            >
+              Chat with us on WhatsApp
             </a>
           </motion.p>
         </div>

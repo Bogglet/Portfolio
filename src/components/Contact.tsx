@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { Clay } from "./Clay";
 import { site, whatsappLink } from "@/lib/site";
 
@@ -10,8 +10,16 @@ type Errors = Partial<Record<"name" | "email" | "message", string>>;
 
 // TODO: no backend yet. Submitting opens a pre-filled email to the team.
 // Swap `submit` for a POST to an API route (e.g. Resend) when ready.
-export function Contact() {
-  const [kind, setKind] = useState<"agency" | "business">("agency");
+type Kind = "agency" | "business";
+
+export function Contact({ defaultKind = "agency" }: { defaultKind?: Kind }) {
+  const [kind, setKind] = useState<Kind>(defaultKind);
+
+  // Links like /?for=business#contact open the form with "A business" selected.
+  useEffect(() => {
+    const param = new URLSearchParams(window.location.search).get("for");
+    if (param === "business" || param === "agency") setKind(param);
+  }, []);
   const [types, setTypes] = useState<string[]>([]);
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
@@ -58,8 +66,8 @@ export function Contact() {
             Send us your next project
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft">
-            Share a brief, a rough idea or a deadline. Our rates are competitive for outsourcing, and you&apos;ll
-            get a clear quote within 24 hours.
+            Share a brief, a rough idea or a deadline. Our rates are competitive, and you&apos;ll get a clear
+            quote within 24 hours.
           </p>
 
           <div className="mt-10 space-y-3">

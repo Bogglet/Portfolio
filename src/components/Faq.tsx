@@ -4,7 +4,17 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { faqs } from "@/lib/site";
 
-export function Faq() {
+type Props = {
+  title?: string;
+  intro?: string;
+  items?: { q: string; a: string }[];
+};
+
+export function Faq({
+  title = "Common questions",
+  intro = "Something else on your mind? Message us on WhatsApp and you'll get a reply the same day.",
+  items = faqs,
+}: Props) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
@@ -12,15 +22,15 @@ export function Faq() {
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <h2 className="font-display text-[clamp(1.9rem,4.2vw,3.1rem)] font-bold leading-[1.06] tracking-[-0.03em]">
-            Questions agencies ask us
+            {title}
           </h2>
           <p className="mt-5 max-w-sm text-lg leading-relaxed text-ink-soft">
-            Something else on your mind? Message us on WhatsApp and you&apos;ll get a reply the same day.
+            {intro}
           </p>
         </div>
 
         <ul className="divide-y divide-line border-y border-line">
-          {faqs.map((f, i) => {
+          {items.map((f, i) => {
             const isOpen = open === i;
             return (
               <li key={f.q}>

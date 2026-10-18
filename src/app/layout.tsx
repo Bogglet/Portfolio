@@ -17,7 +17,7 @@ const instrument = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Bogglet Innovations — White-label web & app development",
+    default: "Bogglet Innovations — Web, app & software development for agencies and businesses",
     template: "%s | Bogglet Innovations",
   },
   description: site.description,
@@ -28,6 +28,10 @@ export const metadata: Metadata = {
     "web development Qatar",
     "mobile app development GCC",
     "Kerala web development company",
+    "business website development",
+    "custom software development GCC",
+    "ERP development UAE",
+    "mobile app development Qatar",
   ],
   openGraph: {
     type: "website",

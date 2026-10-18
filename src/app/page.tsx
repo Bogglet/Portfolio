@@ -1,6 +1,6 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { Audiences, Markets, Partners, Services, Stack, Work } from "@/components/Sections";
+import { Audiences, ForBusiness, Markets, Partners, Services, Stack, Work } from "@/components/Sections";
 import { Faq } from "@/components/Faq";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -30,6 +30,7 @@ export default function Home() {
         <Work />
         <Services />
         <Partners />
+        <ForBusiness />
         <Stack />
         <Faq />
         <Contact />
