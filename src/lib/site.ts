@@ -7,15 +7,25 @@ export const site = {
   url: "https://bogglet.com",
   description:
     "White-label web and app development for digital agencies, plus websites, apps and custom software for businesses across the GCC and India.",
-  email: "team.bogglet@gmail.com",
-  whatsapp: "+919895914090",
-  // TODO: replace placeholders below with real details.
-  phone: "+91 00000 00000",
-  address: "Kochi, Kerala, India",
+  email: "support@bogglet.com",
+  // Inboxes that receive quote-form enquiries.
+  enquiryInboxes: ["support@bogglet.com", "team.bogglet@gmail.com"],
+  whatsapp: "+917593999482",
+  phone: "+91 98959 14090",
+  phoneUae: "+971 54 584 1215",
+  address: "BHIVE Workspace, AKR Tech Park, Hosur Road, Bengaluru 560068",
+  // TODO: replace placeholder socials with real links.
   socials: {
     linkedin: "https://www.linkedin.com/company/bogglet",
     instagram: "https://www.instagram.com/bogglet",
   },
+};
+
+// TODO: replace the placeholder name and role with the real ones.
+export const contactPerson = {
+  name: "Team member",
+  role: "Project consultant",
+  photo: "/team/contact.jpg",
 };
 
 export const whatsappLink = (text = "Hi Bogglet, I'd like to talk about a project.") =>
@@ -185,7 +195,7 @@ export const steps = [
 export const promises = [
   {
     title: "Your brand, not ours",
-    body: "We sign an NDA, never contact your client and never put our name in the footer or the code.",
+    body: "100% confidential. We never contact your client and never put our name in the footer or the code.",
   },
   {
     title: "Fixed quotes",
@@ -193,7 +203,7 @@ export const promises = [
   },
   {
     title: "Your working hours",
-    body: "India is only 1.5 hours ahead of the UAE, so we're online for your whole working day.",
+    body: "India is just 1.5 to 2.5 hours ahead of the Gulf, so we're online for your whole working day. Elsewhere in the world? We agree overlap hours at kickoff.",
   },
   {
     title: "One project manager",
@@ -225,10 +235,6 @@ export const faqs = [
   {
     q: "How do you price white-label projects?",
     a: "We give a fixed quote per project based on scope. Our rates are competitive for outsourcing, so you have room to add your margin. Send us a brief and you'll have a number within 24 hours.",
-  },
-  {
-    q: "We're a business, not an agency. Can we work with you directly?",
-    a: "Yes. We build websites, apps and custom software for small businesses, startups and established companies, and handle everything from design to launch and support.",
   },
   {
     q: "Can you start with a small project first?",
@@ -307,12 +313,12 @@ export const businessSteps = [
     body: "You get a clear scope, timeline and fixed quote, so you know exactly what you're paying for.",
   },
   {
-    title: "Design",
-    body: "Screens and flows you can click through and approve before development starts.",
+    title: "Build",
+    body: "We build in milestones and share a working preview at each one, so you see progress as it happens.",
   },
   {
-    title: "Build & test",
-    body: "We build in milestones and share a working preview at each one, tested against real use cases.",
+    title: "Test",
+    body: "Every screen is tested on real devices and against real use cases before anything goes live.",
   },
   {
     title: "Launch & support",
@@ -354,7 +360,7 @@ export const businessFaqs = [
   },
   {
     q: "Will we be able to update the website ourselves?",
-    a: "Yes. We set up an easy admin area so your team can change text, images, products and prices without a developer.",
+    a: "Yes, depending on the project. Where it makes sense, we set up an easy admin area so your team can change text, images, products and prices without a developer. We'll agree what you can edit when we scope the project.",
   },
   {
     q: "Can you take over a project another developer started?",

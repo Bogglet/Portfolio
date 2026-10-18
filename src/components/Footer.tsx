@@ -48,10 +48,19 @@ export function Footer() {
               </li>
               <li>
                 <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                  WhatsApp +91 98959 14090
+                  WhatsApp +91 75939 99482
                 </a>
               </li>
-              <li>{site.phone}</li>
+              {[
+                ["India", site.phone],
+                ["UAE", site.phoneUae],
+              ].map(([where, number]) => (
+                <li key={where}>
+                  <a href={`tel:${number.replace(/\s/g, "")}`} className="hover:underline">
+                    <span className="text-white/70">{where}</span> {number}
+                  </a>
+                </li>
+              ))}
               <li className="text-white/80">{site.address}</li>
             </ul>
           </div>
@@ -75,7 +84,7 @@ export function Footer() {
         <Logo full className="mt-20 h-auto w-full text-white/95" />
 
         <div className="mt-8 flex flex-wrap justify-between gap-4 border-t border-white/20 pt-6 text-sm text-white/70">
-          <span>© {new Date().getFullYear()} Bogglet Innovations. Kerala, India.</span>
+          <span>© {new Date().getFullYear()} Bogglet Innovations. Bengaluru, India.</span>
           <span>Serving the GCC, India and beyond</span>
         </div>
       </div>

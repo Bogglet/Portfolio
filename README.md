@@ -22,9 +22,13 @@ The favicon and Open Graph image are generated from `src/app/icon.png` and `src/
 
 ## Contact form
 
-There's no backend yet. Submitting opens the visitor's email app with the enquiry
-pre-filled to team.bogglet@gmail.com (`src/components/Contact.tsx`). To send emails
-directly, replace `submit` with a POST to an API route using Resend or Formspree.
+The quote form posts to `src/app/api/enquiry/route.ts`, which emails the enquiry to
+support@bogglet.com and team.bogglet@gmail.com through [Resend](https://resend.com). Set these in `.env.local`
+and in Vercel's environment variables:
+
+- `RESEND_API_KEY` (required)
+- `RESEND_FROM`, e.g. `Bogglet website <enquiry@bogglet.com>` (requires bogglet.com to be verified in Resend)
+- `ENQUIRY_TO` (optional, comma-separated, overrides the recipients)
 
 ## Deploy to Vercel
 

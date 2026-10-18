@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Clay } from "./Clay";
 import {
   businessGroups,
@@ -12,7 +13,7 @@ import {
   type Service,
 } from "@/lib/site";
 
-function Heading({ title, body, invert = false }: { title: string; body?: string; invert?: boolean }) {
+function Heading({ title, body, invert = false }: { title: string; body?: ReactNode; invert?: boolean }) {
   return (
     <div className="max-w-2xl">
       <h2
@@ -24,6 +25,18 @@ function Heading({ title, body, invert = false }: { title: string; body?: string
         <p className={`mt-5 text-lg leading-relaxed ${invert ? "text-white/75" : "text-ink-soft"}`}>{body}</p>
       )}
     </div>
+  );
+}
+
+// Butter highlighter stroke for the one phrase in an intro that matters most.
+function Highlight({ children }: { children: ReactNode }) {
+  return (
+    <mark
+      className="rounded-[0.3em] bg-transparent px-1 font-semibold text-ink [box-decoration-break:clone] [-webkit-box-decoration-break:clone]"
+      style={{ backgroundImage: "linear-gradient(transparent 55%, rgb(255 207 92 / 0.8) 55%)" }}
+    >
+      {children}
+    </mark>
   );
 }
 
@@ -117,7 +130,12 @@ export function Services() {
       <div className="mx-auto max-w-site">
         <Heading
           title="If it runs on a screen, we build it"
-          body="Design, development and support under one roof, so you can say yes to whatever your client asks for next."
+          body={
+            <>
+              Design, development and support under one roof, so you can{" "}
+              <Highlight>say yes to whatever your client asks for next.</Highlight>
+            </>
+          }
         />
         <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
@@ -372,13 +390,24 @@ export function Stack() {
   return (
     <section aria-label="Technologies" className="px-4 py-24 sm:py-28">
       <div className="mx-auto max-w-site">
-        <Heading title="Tools we know well" body="We pick what suits the project and your client's team, not what's trendy." />
+        <Heading
+          title="Tools we know well"
+          body={
+            <>
+              These are the ones we use most, and we know many more. We pick what suits
+              the project and your client&apos;s team, not what&apos;s trendy.
+            </>
+          }
+        />
         <ul className="mt-10 flex flex-wrap gap-3">
           {stack.map((t) => (
             <li key={t} className="rounded-full border border-line bg-white px-5 py-2.5 font-medium text-ink">
               {t}
             </li>
           ))}
+          <li className="rounded-full bg-red px-5 py-2.5 font-semibold text-white shadow-[0_10px_24px_-12px_rgb(180_19_20/0.7)]">
+            Many more
+          </li>
         </ul>
       </div>
     </section>

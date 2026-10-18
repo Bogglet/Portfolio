@@ -2,13 +2,13 @@
 
 Read this before changing anything. It covers what the site is for, the decisions the owners have already made, the design system, and how to work in this repo without breaking things. Keep it up to date when decisions change.
 
-Last updated: 2026-10-18.
+Last updated: 2026-10-18 (evening).
 
 ---
 
 ## 1. What this is
 
-The marketing site for **Bogglet Innovations**, a web, app and software development company in Kochi, Kerala, India.
+The marketing site for **Bogglet Innovations**, a web, app and software development company in Bengaluru, India (office: BHIVE Workspace, AKR Tech Park, Hosur Road).
 
 - **Live site:** https://www.bogglet.com (`bogglet.com` redirects to `www`)
 - **Repo:** https://github.com/Bogglet/Portfolio (branch `main`)
@@ -41,9 +41,9 @@ Real case studies will replace the placeholder projects later.
 - **No numbers we can't prove.** Never state project counts, client counts, years in business or team size. Describe the team as "a large in-house team" without a number.
 - **Pricing copy:** always "competitive rates, get a quote". No prices or "starting from".
 - **Tech stack shown on the site:** everything except **Laravel**, which was explicitly removed.
-- **Contact details:** email `team.bogglet@gmail.com`, WhatsApp `+91 98959 14090`. The phone number, office address, LinkedIn and Instagram are **placeholders** in `src/lib/site.ts`.
+- **Contact details:** email `support@bogglet.com`, WhatsApp `+91 75939 99482`. Phones `+91 98959 14090` (India) and `+971 54 584 1215` (UAE), shown in the footer. LinkedIn and Instagram are **placeholders** in `src/lib/site.ts`.
 - **Projects:** the four projects on the homepage are **placeholders** with anonymous clients (e.g. "Boutique hotel group, Doha"). Replace them when the owners send real work. Never invent client names or testimonials.
-- **Contact form:** there's no backend yet. Submitting opens the visitor's email app with the enquiry filled in, addressed to the team email. A real backend (Resend or Formspree) can be added later.
+- **Contact form:** posts to `src/app/api/enquiry/route.ts`, which emails the enquiry to `support@bogglet.com` and `team.bogglet@gmail.com` (`site.enquiryInboxes`) through Resend, with reply-to set to the visitor. Env vars: `RESEND_API_KEY` (required), `RESEND_FROM` (e.g. `Bogglet website <enquiry@bogglet.com>`, needs `bogglet.com` verified in Resend), `ENQUIRY_TO` (optional, comma-separated override of the recipients). Keep keys in `.env.local` and Vercel, never in the repo.
 - **Promises still to be confirmed by the owners:** quote within 24 hours, free bug fixes for 30 days after launch, same-day replies, NDA, team training at launch, Google Business profile setup. Don't add new promises without asking.
 - **Layout width (2026-10-18):** content is 80% of the screen width, at least 1152px and at most 1536px (`max-w-site` in `globals.css`). On wide laptops (1920px) the owners wanted less empty margin but **not** a scaled-up "zoomed" look. Don't scale the root font size.
 
@@ -64,10 +64,22 @@ Real case studies will replace the placeholder projects later.
    - Business FAQ added.
 5. **2026-10-18:** widened the layout on large screens (cap 1536px). Fixed a hydration warning for reduced-motion users with `MotionConfig reducedMotion="user"` in the hero.
 
+6. **2026-10-18:** polish and real contact details:
+   - Hero: a clay magnifying lens zooms in on the agency name in the preview footer while the visitor types.
+   - Services intro and the tools section: butter highlighter (`Highlight` in `Sections.tsx`) and a red "Many more" chip.
+   - Promises: "100% confidential" instead of "We sign an NDA" (no NDA document is signed); time-zone copy now covers the whole Gulf.
+   - FAQ: "For agencies" / "For businesses" tabs on the homepage, with clay shapes in the background.
+   - Contact: a red "talk to a person" card with a photo (`contactPerson` in `site.ts`) and a WhatsApp button; headline is "Send us your next brief" (Unbounded's "j" reads like an "i").
+   - The quote form now emails through Resend (`src/app/api/enquiry/route.ts`) instead of opening the visitor's email app.
+   - Contact details: `support@bogglet.com`, WhatsApp `+91 75939 99482`, India `+91 98959 14090`, UAE `+971 54 584 1215`, office at BHIVE Workspace, AKR Tech Park, Bengaluru.
+   - `/for-business` process: "Design" removed, "Build" and "Test" are separate steps.
+
 ### Current state
 
-- Steps 3–5 are **committed locally on `main` but NOT pushed**, as of this writing. bogglet.com still shows Akshay's version until someone pushes. Run `git status -sb` to check. **Pushing replaces the live site**, so the owners asked to coordinate with Akshay first.
-- Waiting on the owners for: real projects and screenshots, the remaining contact details, and confirmation of the promises listed in §2.
+- Steps 3–6 are pushed to `main` and live on bogglet.com (2026-10-18).
+- **The quote form needs setup in production:** `RESEND_API_KEY` in Vercel, and `bogglet.com` verified in Resend with `RESEND_FROM` set. Until then the form shows its error message with the WhatsApp and email fallbacks.
+- The FAQ answer "Will my client ever find out you built it?" still says "We work under an NDA". It should match the "100% confidential" promise once the owners confirm.
+- Waiting on the owners for: real projects and screenshots, the contact person's name and role, real LinkedIn/Instagram links, and confirmation of the promises listed in §2.
 
 ---
 

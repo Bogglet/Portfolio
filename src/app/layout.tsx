@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "outsource web development UAE",
     "web development Qatar",
     "mobile app development GCC",
-    "Kerala web development company",
+    "Bengaluru web development company",
     "business website development",
     "custom software development GCC",
     "ERP development UAE",

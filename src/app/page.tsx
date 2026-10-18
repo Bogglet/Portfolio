@@ -15,7 +15,16 @@ const jsonLd = {
   email: site.email,
   description: site.description,
   areaServed: ["QA", "AE", "OM", "SA", "BH", "KW", "IN"],
-  contactPoint: { "@type": "ContactPoint", telephone: site.whatsapp, contactType: "sales" },
+  contactPoint: [
+    { "@type": "ContactPoint", telephone: site.whatsapp, contactType: "sales", areaServed: "IN" },
+    { "@type": "ContactPoint", telephone: site.phone.replace(/\s/g, ""), contactType: "sales", areaServed: "IN" },
+    {
+      "@type": "ContactPoint",
+      telephone: site.phoneUae.replace(/\s/g, ""),
+      contactType: "sales",
+      areaServed: ["AE", "QA", "OM", "SA", "BH", "KW"],
+    },
+  ],
 };
 
 export default function Home() {
