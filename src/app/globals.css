@@ -34,6 +34,12 @@
   }
 }
 
+/* Page content width: 80% of the screen, at least 72rem (1152px) and at most
+   88rem (1408px), so wide laptops get a slightly wider layout. */
+@utility max-w-site {
+  max-width: max(72rem, min(80vw, 88rem));
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;

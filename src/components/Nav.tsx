@@ -28,7 +28,7 @@ export function Nav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <nav
-        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border px-5 py-3 transition-[background-color,border-color,box-shadow] duration-300 ${
+        className={`mx-auto flex max-w-site items-center justify-between rounded-full border px-5 py-3 transition-[background-color,border-color,box-shadow] duration-300 ${
           scrolled || open
             ? "border-line bg-white/85 shadow-[0_10px_30px_-18px_rgb(60_20_20/0.4)] backdrop-blur-md"
             : "border-transparent bg-transparent"
@@ -83,7 +83,7 @@ export function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="mx-auto mt-2 max-w-6xl rounded-3xl border border-line bg-white p-3 shadow-xl lg:hidden"
+            className="mx-auto mt-2 max-w-site rounded-3xl border border-line bg-white p-3 shadow-xl lg:hidden"
           >
             {links.map((l) => (
               <Link

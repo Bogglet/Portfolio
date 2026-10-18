@@ -60,7 +60,7 @@ export function Contact({ defaultKind = "agency" }: { defaultKind?: Kind }) {
 
   return (
     <section id="contact" className="relative overflow-hidden px-4 py-24 sm:py-32">
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="mx-auto grid max-w-site gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="relative">
           <h2 className="font-display text-[clamp(2.1rem,5vw,3.8rem)] font-bold leading-[1.02] tracking-[-0.035em]">
             Send us your next project

@@ -95,7 +95,7 @@ export default function ForBusinessPage() {
       <main>
         <section className="relative overflow-hidden px-4 pb-16 pt-32 sm:pb-24 sm:pt-40">
           <div aria-hidden className="absolute -right-40 top-10 -z-10 size-[720px] rounded-full bg-blush blur-3xl" />
-          <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
+          <div className="mx-auto grid max-w-site items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
             <div>
               <p className="text-[15px] font-semibold text-red">For businesses</p>
               <h1 className="mt-4 font-display text-[clamp(2.3rem,5vw,3.8rem)] font-bold leading-[1.03] tracking-[-0.035em]">
@@ -127,7 +127,7 @@ export default function ForBusinessPage() {
         </section>
 
         <section className="bg-[#fbf8f7] px-4 py-24 sm:py-32">
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-site">
             <Heading
               title="Who we build for"
               body="Whether you need your first website or are replacing systems across several branches, the team and the process are the same."
@@ -151,7 +151,7 @@ export default function ForBusinessPage() {
         </section>
 
         <section className="px-4 py-24 sm:py-32">
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-site">
             <Heading
               title="What we build"
               body="Start with what you need now and add to it as you grow. Everything we build works together."
@@ -164,7 +164,7 @@ export default function ForBusinessPage() {
 
         <section className="relative overflow-hidden bg-ink px-4 py-24 text-white sm:py-32">
           <Clay tone="red" shape="sphere" className="-right-24 -top-24 w-80 opacity-90" />
-          <div className="relative mx-auto max-w-6xl">
+          <div className="relative mx-auto max-w-site">
             <Heading
               invert
               title="How a project runs"

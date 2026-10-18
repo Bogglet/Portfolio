@@ -19,7 +19,7 @@ export function Faq({
 
   return (
     <section id="faq" className="bg-[#fbf8f7] px-4 py-24 sm:py-32">
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+      <div className="mx-auto grid max-w-site gap-12 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <h2 className="font-display text-[clamp(1.9rem,4.2vw,3.1rem)] font-bold leading-[1.06] tracking-[-0.03em]">
             {title}

@@ -5,7 +5,7 @@ import { site, whatsappLink } from "@/lib/site";
 export function Footer() {
   return (
     <footer className="bg-red px-4 pb-10 pt-20 text-white">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-site">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_0.7fr]">
           <div>
             <p className="max-w-sm font-display text-2xl font-bold leading-snug tracking-tight">

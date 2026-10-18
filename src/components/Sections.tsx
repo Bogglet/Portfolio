@@ -31,7 +31,7 @@ export function Markets() {
   const row = [...markets, ...markets];
   return (
     <section aria-label="Markets we serve" className="border-y border-line bg-white py-6">
-      <div className="mx-auto mb-3 max-w-6xl px-4 text-sm font-medium text-ink-soft">
+      <div className="mx-auto mb-3 max-w-site px-4 text-sm font-medium text-ink-soft">
         Trusted by agencies and businesses across the Gulf and beyond
       </div>
       <div className="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
@@ -55,7 +55,7 @@ export function Markets() {
 export function Audiences() {
   return (
     <section className="px-4 py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-site">
         <Heading
           title="Two ways to work with us"
           body="Most of our work comes from agencies who need a reliable build team. We also work directly with businesses of every size, from a first website to company-wide software."
@@ -114,7 +114,7 @@ const toneClass: Record<Service["tone"], string> = {
 export function Services() {
   return (
     <section id="services" className="bg-[#fbf8f7] px-4 py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-site">
         <Heading
           title="If it runs on a screen, we build it"
           body="Design, development and support under one roof, so you can say yes to whatever your client asks for next."
@@ -247,7 +247,7 @@ function ProjectArt({ p }: { p: Project }) {
 export function Work() {
   return (
     <section id="work" className="px-4 pb-24 pt-4 sm:pb-32">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-site">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <Heading
             title="Recent work"
@@ -281,7 +281,7 @@ export function Partners() {
     <section id="partners" className="relative overflow-hidden bg-ink px-4 py-24 text-white sm:py-32">
       <Clay tone="red" shape="sphere" className="-right-24 -top-24 w-80 opacity-90" />
       <Clay tone="butter" shape="pill" className="-left-16 bottom-24 w-48 opacity-90" style={{ transform: "rotate(24deg)" }} />
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-site">
         <Heading
           invert
           title="How a white-label project runs"
@@ -341,7 +341,7 @@ export function BusinessGroups() {
 export function ForBusiness() {
   return (
     <section id="business" className="px-4 py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-site">
         <Heading
           title="Building for businesses directly"
           body="Not an agency? We work with small businesses, startups and established companies across the Gulf and India, from a first website to the software that runs the whole operation."
@@ -371,7 +371,7 @@ export function ForBusiness() {
 export function Stack() {
   return (
     <section aria-label="Technologies" className="px-4 py-24 sm:py-28">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-site">
         <Heading title="Tools we know well" body="We pick what suits the project and your client's team, not what's trendy." />
         <ul className="mt-10 flex flex-wrap gap-3">
           {stack.map((t) => (
