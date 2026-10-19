@@ -4,7 +4,7 @@
 export const site = {
   name: "Bogglet Innovations",
   shortName: "Bogglet",
-  url: "https://bogglet.com",
+  url: "https://www.bogglet.com",
   description:
     "White-label web and app development for digital agencies, plus websites, apps and custom software for businesses across the GCC and India.",
   email: "support@bogglet.com",
