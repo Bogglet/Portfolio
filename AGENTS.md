@@ -2,7 +2,7 @@
 
 Read this before changing anything. It covers what the site is for, the decisions the owners have already made, the design system, and how to work in this repo without breaking things. Keep it up to date when decisions change.
 
-Last updated: 2026-10-18 (evening).
+Last updated: 2026-10-19.
 
 ---
 
@@ -75,6 +75,16 @@ Real case studies will replace the placeholder projects later.
    - `/for-business` process: "Design" removed, "Build" and "Test" are separate steps.
 
 7. **2026-10-18 (later):** footer social links removed (no real profiles yet); nav logo vertically centred; "Recent work" now shows four real projects (HolaBakes, HomeDec, Student Management System, Sugar and Slice) as composed screenshot images instead of wireframes.
+
+8. **2026-10-19:** SEO groundwork, with no visible design changes:
+   - Canonical domain is `https://www.bogglet.com` (`site.url`). `bogglet.com` 308-redirects there, so never point canonicals, sitemap or JSON-LD at the bare domain.
+   - Added `favicon.ico` (Google's favicon crawler asks for it).
+   - FAQ answers and both homepage FAQ tabs are always in the HTML (collapsed with height 0), so crawlers that don't run JavaScript can read them.
+   - JSON-LD lives in `src/lib/seo.ts` and is built from `site.ts`: Organization, WebSite, WebPage, Service, BreadcrumbList, FAQPage.
+   - `/for-business` has its own Open Graph/Twitter tags. Homepage title shortened so Google doesn't cut it off. `keywords` meta removed (search engines ignore it).
+   - Sitemap no longer sends a build-time `lastmod`. robots.txt disallows `/api/`. `/llms.txt` is generated from `site.ts`.
+   - `npm run seo:check -- <baseUrl>` checks titles, descriptions, canonicals, og:url, noindex, h1 count, JSON-LD syntax, alt text, internal links and the 404 status against a running server.
+   - Search Console: domain property `bogglet.com` is verified, and `https://www.bogglet.com/sitemap.xml` was submitted on 2026-10-19.
 
 ### Current state
 
@@ -179,7 +189,9 @@ src/
     Contact.tsx           quote form (mailto); prop defaultKind; reads ?for=business
     Footer.tsx            red footer, big logo, links
     Clay.tsx, Logo.tsx
+  app/llms.txt/route.ts   plain-text site summary for AI tools, built from site.ts
   lib/
+    seo.ts                JSON-LD for the homepage and /for-business
     site.ts               ALL copy and data: contact, markets, services, stack, projects,
                           steps, promises, FAQs, business groups/audiences/steps/promises/FAQs
 public/brand/             transparent logo PNGs (logo-full, wordmark, innovations, b-mark)
@@ -194,7 +206,7 @@ Homepage order: Hero → Markets → Audiences → Work → Services → Partner
 ## 7. Working in this repo
 
 - **Stack:** Next.js 15 (App Router), React 19, Tailwind CSS 4, `motion`, TypeScript.
-- **Commands:** `npm run dev`, `npm run lint`, `npx tsc --noEmit`, `npm run build`.
+- **Commands:** `npm run dev`, `npm run lint`, `npx tsc --noEmit`, `npm run build`, `npm run seo:check -- http://localhost:3000` (needs a running server).
 - **Don't run `npm run build` while someone's `npm run dev` is running in this folder.** Both use `.next/`, and the build breaks the dev server. Check with `ss -ltnp | grep 3000`. Use `npx tsc --noEmit` and `npm run lint` instead, and view changes on the running dev server.
 - Use `next/link` for links between pages (lint enforces it). In-page anchors like `#contact` can stay as `<a>`.
 - Don't run code formatters such as Prettier. The project has no formatter config, and it reformats whole files.

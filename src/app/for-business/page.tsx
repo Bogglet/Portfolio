@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Faq } from "@/components/Faq";
 import { Contact } from "@/components/Contact";
 import { Clay } from "@/components/Clay";
+import { forBusinessJsonLd } from "@/lib/seo";
 import { BusinessGroups } from "@/components/Sections";
 import {
   businessAudiences,
@@ -13,11 +14,16 @@ import {
   whatsappLink,
 } from "@/lib/site";
 
+const title = "Websites, apps & custom software for businesses";
+const description =
+  "Bogglet builds business websites, online booking, mobile apps, ERP/CRM systems and AI tools for small businesses, startups and established companies across the GCC and India.";
+
 export const metadata: Metadata = {
-  title: "Websites, apps & custom software for businesses",
-  description:
-    "Bogglet builds business websites, online booking, mobile apps, ERP/CRM systems and AI tools for small businesses, startups and established companies across the GCC and India.",
+  title,
+  description,
   alternates: { canonical: "/for-business" },
+  openGraph: { type: "website", url: "/for-business", title, description },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 function Heading({
@@ -127,6 +133,7 @@ function HeroArt() {
 export default function ForBusinessPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(forBusinessJsonLd) }} />
       <Nav />
       <main>
         <section className="relative overflow-hidden px-4 pb-16 pt-32 sm:pb-24 sm:pt-40">

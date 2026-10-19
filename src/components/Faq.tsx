@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { businessFaqs, faqs } from "@/lib/site";
 import { Clay } from "./Clay";
 
@@ -25,8 +25,6 @@ export function Faq({
   items,
 }: Props) {
   const [tab, setTab] = useState(0);
-  const [open, setOpen] = useState<number | null>(0);
-  const list = items ?? groups[tab].items;
 
   return (
     <section id="faq" className="relative overflow-hidden bg-[#fbf8f7] px-4 py-24 sm:py-32">
@@ -61,10 +59,7 @@ export function Faq({
                   key={g.label}
                   type="button"
                   aria-pressed={tab === i}
-                  onClick={() => {
-                    setTab(i);
-                    setOpen(0);
-                  }}
+                  onClick={() => setTab(i)}
                   className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-colors ${
                     tab === i ? g.active : "text-ink-soft hover:text-ink"
                   }`}
@@ -93,47 +88,64 @@ export function Faq({
           </div>
         </div>
 
-        <ul className="divide-y divide-line border-y border-line">
-          {list.map((f, i) => {
-            const isOpen = open === i;
-            return (
-              <li key={f.q}>
-                <h3>
-                  <button
-                    type="button"
-                    onClick={() => setOpen(isOpen ? null : i)}
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-${i}`}
-                    className="flex w-full items-center justify-between gap-6 py-6 text-left font-display text-lg font-semibold tracking-tight"
-                  >
-                    {f.q}
-                    <span
-                      aria-hidden
-                      className={`grid size-9 shrink-0 place-items-center rounded-full border text-xl transition-transform duration-300 ${isOpen ? "rotate-45 border-red bg-red text-white" : "border-line"}`}
-                    >
-                      +
-                    </span>
-                  </button>
-                </h3>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      id={`faq-${i}`}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <p className="max-w-xl pb-6 leading-relaxed text-ink-soft">{f.a}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </li>
-            );
-          })}
-        </ul>
+        {items ? (
+          <FaqList items={items} id="faq" />
+        ) : (
+          // Both tabs stay in the HTML so crawlers see every answer.
+          <div>
+            {groups.map((g, i) => (
+              <div key={g.label} hidden={tab !== i}>
+                <FaqList items={g.items} id={`faq-${i}`} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
+  );
+}
+
+// Closed answers collapse to zero height but stay in the HTML, so search
+// engines and AI crawlers that don't run JavaScript can still read them.
+function FaqList({ items, id }: { items: Item[]; id: string }) {
+  const [open, setOpen] = useState<number | null>(0);
+
+  return (
+    <ul className="divide-y divide-line border-y border-line">
+      {items.map((f, i) => {
+        const isOpen = open === i;
+        return (
+          <li key={f.q}>
+            <h3>
+              <button
+                type="button"
+                onClick={() => setOpen(isOpen ? null : i)}
+                aria-expanded={isOpen}
+                aria-controls={`${id}-${i}`}
+                className="flex w-full items-center justify-between gap-6 py-6 text-left font-display text-lg font-semibold tracking-tight"
+              >
+                {f.q}
+                <span
+                  aria-hidden
+                  className={`grid size-9 shrink-0 place-items-center rounded-full border text-xl transition-transform duration-300 ${isOpen ? "rotate-45 border-red bg-red text-white" : "border-line"}`}
+                >
+                  +
+                </span>
+              </button>
+            </h3>
+            <motion.div
+              id={`${id}-${i}`}
+              initial={false}
+              animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              inert={!isOpen}
+              className="overflow-hidden"
+            >
+              <p className="max-w-xl pb-6 leading-relaxed text-ink-soft">{f.a}</p>
+            </motion.div>
+          </li>
+        );
+      })}
+    </ul>
   );
 }

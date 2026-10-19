@@ -17,22 +17,10 @@ const instrument = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Bogglet Innovations — Web, app & software development for agencies and businesses",
+    default: "Bogglet | White-label web, app & software development",
     template: "%s | Bogglet Innovations",
   },
   description: site.description,
-  keywords: [
-    "white label web development",
-    "website development partner",
-    "outsource web development UAE",
-    "web development Qatar",
-    "mobile app development GCC",
-    "Bengaluru web development company",
-    "business website development",
-    "custom software development GCC",
-    "ERP development UAE",
-    "mobile app development Qatar",
-  ],
   openGraph: {
     type: "website",
     url: site.url,
@@ -40,7 +28,11 @@ export const metadata: Metadata = {
     title: "Bogglet Innovations — You manage the client. We handle the build.",
     description: site.description,
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bogglet Innovations — You manage the client. We handle the build.",
+    description: site.description,
+  },
   alternates: { canonical: "/" },
 };
 
