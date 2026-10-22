@@ -21,6 +21,16 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
+  keywords: [
+    "tech team for all businesses",
+    "business tools development",
+    "business software development",
+    "best web development team in kerala india gcc uk",
+    "custom business tools and software",
+    "business software development company",
+    "ERP CRM AI tools development",
+    "software team for businesses",
+  ],
   alternates: { canonical: "/for-business" },
   openGraph: { type: "website", url: "/for-business", title, description },
   twitter: { card: "summary_large_image", title, description },

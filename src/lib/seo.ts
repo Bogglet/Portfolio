@@ -12,11 +12,23 @@ const organization = {
   "@type": "Organization",
   "@id": orgId,
   name: site.name,
-  alternateName: site.shortName,
+  legalName: site.name,
+  alternateName: [site.shortName, "Bogglet Innovations"],
   url: site.url,
   logo: `${site.url}/brand/logo-full.png`,
   email: site.email,
   description: site.description,
+  knowsAbout: [
+    "White-label software development",
+    "White-label web development",
+    "White-label mobile app development",
+    "Custom software development",
+    "Business tools development",
+    "Business software solutions",
+    "Enterprise web applications",
+    "Mobile app development",
+    "Full-stack software engineering",
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: "BHIVE Workspace, AKR Tech Park, Hosur Road",
@@ -24,7 +36,10 @@ const organization = {
     postalCode: "560068",
     addressCountry: "IN",
   },
-  areaServed: markets.map((name) => ({ "@type": "Country", name })),
+  areaServed: [
+    ...markets.map((name) => ({ "@type": "Country", name })),
+    { "@type": "AdministrativeArea", name: "Kerala" },
+  ],
   contactPoint: [
     { "@type": "ContactPoint", telephone: site.phone.replace(/\s/g, ""), contactType: "sales", areaServed: "IN" },
     {
@@ -35,6 +50,7 @@ const organization = {
     },
     { "@type": "ContactPoint", email: site.email, contactType: "customer support" },
   ],
+  sameAs: ["https://github.com/Bogglet"],
 };
 
 const website = {
@@ -83,17 +99,35 @@ export const homeJsonLd = {
       "@type": "WebPage",
       "@id": `${site.url}/#webpage`,
       url: site.url,
-      name: "White-label web, app & software development",
+      name: "Bogglet Innovations | White-label software, web & app development",
       isPartOf: { "@id": websiteId },
       about: { "@id": orgId },
       inLanguage: "en",
     },
     service(
+      "White-label software development",
+      "Custom software, portals and backend systems engineered under digital agency brands. Bogglet Innovations builds quietly while agencies manage their clients.",
+      "Digital agencies",
+    ),
+    service(
       "White-label web and app development",
-      "Websites, apps and custom software built under a digital agency's brand. The agency keeps the client relationship; Bogglet builds and stays out of sight.",
+      "Websites, mobile apps and custom software built under a digital agency's brand. The agency keeps the client relationship; Bogglet builds and stays out of sight.",
       "Digital agencies",
     ),
     faqPage([...faqs, ...businessFaqs]),
+    ...[
+      { name: "For businesses", url: `${site.url}/for-business` },
+      { name: "Services", url: `${site.url}/#services` },
+      { name: "Work", url: `${site.url}/#work` },
+      { name: "For agencies", url: `${site.url}/#partners` },
+      { name: "FAQ", url: `${site.url}/#faq` },
+      { name: "Contact", url: `${site.url}/#contact` },
+    ].map((item, index) => ({
+      "@type": "SiteNavigationElement",
+      "@id": `${site.url}/#nav-${index + 1}`,
+      name: item.name,
+      url: item.url,
+    })),
   ],
 };
 

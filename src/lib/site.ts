@@ -6,7 +6,7 @@ export const site = {
   shortName: "Bogglet",
   url: "https://www.bogglet.com",
   description:
-    "White-label web and app development for digital agencies, plus websites, apps and custom software for businesses across the GCC and India.",
+    "Bogglet Innovations provides white-label software, web and app development for digital agencies, plus custom software and websites for businesses across the GCC and India.",
   email: "support@bogglet.com",
   // Inboxes that receive quote-form enquiries.
   enquiryInboxes: ["support@bogglet.com", "team.bogglet@gmail.com"],
