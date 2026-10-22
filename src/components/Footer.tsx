@@ -48,7 +48,7 @@ export function Footer() {
               </li>
               <li>
                 <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                  WhatsApp +91 75939 99482
+                  WhatsApp {site.whatsapp}
                 </a>
               </li>
               {[

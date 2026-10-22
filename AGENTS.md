@@ -41,7 +41,7 @@ Real case studies will replace the placeholder projects later.
 - **No numbers we can't prove.** Never state project counts, client counts, years in business or team size. Describe the team as "a large in-house team" without a number.
 - **Pricing copy:** always "competitive rates, get a quote". No prices or "starting from".
 - **Tech stack shown on the site:** everything except **Laravel**, which was explicitly removed.
-- **Contact details:** email `support@bogglet.com`, WhatsApp `+91 75939 99482`. Phones `+91 98959 14090` (India) and `+971 54 584 1215` (UAE), shown in the footer. No social links on the site for now (removed 2026-10-18); add them back to `site` in `src/lib/site.ts` and the footer when the owners send real profiles.
+- **Contact details:** email `support@bogglet.com`, WhatsApp `+91 98959 14090` (same as the India phone; the old WhatsApp number was removed on 2026-10-22). Phones `+91 98959 14090` (India) and `+971 54 584 1215` (UAE), shown in the footer. No social links on the site for now (removed 2026-10-18); add them back to `site` in `src/lib/site.ts` and the footer when the owners send real profiles.
 - **Projects:** all four on the homepage are real work, shown with the owners' screenshots composed into images in `public/work/` (personal emails and dev URLs cropped out): **HolaBakes** (cake-ordering app, Kochi), **HomeDec** (furniture e-commerce website), **Student Management System** (college ERP) and **Sugar and Slice** (inventory & management system). City is still to confirm for the last three. Never invent client names or testimonials.
 - **Contact form:** posts to `src/app/api/enquiry/route.ts`, which emails the enquiry to `support@bogglet.com` and `team.bogglet@gmail.com` (`site.enquiryInboxes`) through Resend, with reply-to set to the visitor. Env vars: `RESEND_API_KEY` (required), `RESEND_FROM` (e.g. `Bogglet website <enquiry@bogglet.com>`, needs `bogglet.com` verified in Resend), `ENQUIRY_TO` (optional, comma-separated override of the recipients). Keep keys in `.env.local` and Vercel, never in the repo.
 - **Promises still to be confirmed by the owners:** quote within 24 hours, free bug fixes for 30 days after launch, same-day replies, NDA, team training at launch, Google Business profile setup. Don't add new promises without asking.
@@ -71,7 +71,7 @@ Real case studies will replace the placeholder projects later.
    - FAQ: "For agencies" / "For businesses" tabs on the homepage, with clay shapes in the background.
    - Contact: a red "talk to a person" card with a photo (`contactPerson` in `site.ts`) and a WhatsApp button; headline is "Send us your next brief" (Unbounded's "j" reads like an "i").
    - The quote form now emails through Resend (`src/app/api/enquiry/route.ts`) instead of opening the visitor's email app.
-   - Contact details: `support@bogglet.com`, WhatsApp `+91 75939 99482`, India `+91 98959 14090`, UAE `+971 54 584 1215`, office at BHIVE Workspace, AKR Tech Park, Bengaluru.
+   - Contact details: `support@bogglet.com`, India `+91 98959 14090`, UAE `+971 54 584 1215`, office at BHIVE Workspace, AKR Tech Park, Bengaluru.
    - `/for-business` process: "Design" removed, "Build" and "Test" are separate steps.
 
 7. **2026-10-18 (later):** footer social links removed (no real profiles yet); nav logo vertically centred; "Recent work" now shows four real projects (HolaBakes, HomeDec, Student Management System, Sugar and Slice) as composed screenshot images instead of wireframes.
@@ -88,7 +88,7 @@ Real case studies will replace the placeholder projects later.
 
 ### Current state
 
-- Steps 3–7 are pushed to `main` and live on bogglet.com (2026-10-18).
+- Steps 3–8 are pushed to `main` and live on bogglet.com.
 - **The quote form needs setup in production:** `RESEND_API_KEY` in Vercel, and `bogglet.com` verified in Resend with `RESEND_FROM` set. Until then the form shows its error message with the WhatsApp and email fallbacks.
 - The FAQ answer "Will my client ever find out you built it?" still says "We work under an NDA". It should match the "100% confidential" promise once the owners confirm.
 - Waiting on the owners for: real projects and screenshots, the contact person's name and role, real social profiles, and confirmation of the promises listed in §2.
