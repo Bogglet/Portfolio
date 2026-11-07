@@ -10,9 +10,8 @@ export const site = {
   email: "support@bogglet.com",
   // Inboxes that receive quote-form enquiries.
   enquiryInboxes: ["support@bogglet.com", "team.bogglet@gmail.com"],
-  whatsapp: "+971 54 584 1215",
+  whatsapp: "+91 79946 94887",
   phone: "+91 98959 14090",
-  phoneUae: "+971 54 584 1215",
   address: "BHIVE Workspace, AKR Tech Park, Hosur Road, Bengaluru 560068",
 };
 

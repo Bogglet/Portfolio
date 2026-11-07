@@ -53,7 +53,6 @@ export function Footer() {
               </li>
               {[
                 ["India", site.phone],
-                ["UAE", site.phoneUae],
               ].map(([where, number]) => (
                 <li key={where}>
                   <a href={`tel:${number.replace(/\s/g, "")}`} className="hover:underline">

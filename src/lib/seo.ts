@@ -44,7 +44,7 @@ const organization = {
     { "@type": "ContactPoint", telephone: site.phone.replace(/\s/g, ""), contactType: "sales", areaServed: "IN" },
     {
       "@type": "ContactPoint",
-      telephone: site.phoneUae.replace(/\s/g, ""),
+      telephone: site.whatsapp.replace(/\s/g, ""),
       contactType: "sales",
       areaServed: ["AE", "QA", "OM", "SA", "BH", "KW"],
     },

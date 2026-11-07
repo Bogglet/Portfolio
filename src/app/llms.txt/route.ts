@@ -33,7 +33,6 @@ ${markets.join(", ")}
 - Email: ${site.email}
 - WhatsApp: ${site.whatsapp}
 - India: ${site.phone}
-- UAE: ${site.phoneUae}
 - Office: ${site.address}
 - Pricing: competitive rates, fixed quote per project. Ask for a quote.
 `;
