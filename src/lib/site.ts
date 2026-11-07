@@ -15,7 +15,7 @@ export const site = {
   address: "BHIVE Workspace, AKR Tech Park, Hosur Road, Bengaluru 560068",
 };
 
-// TODO: replace the placeholder name and role with the real ones.
+// TODO: replace the placeholder name and role with the real ones
 export const contactPerson = {
   name: "Team member",
   role: "Project consultant",
